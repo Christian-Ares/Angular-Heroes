@@ -1,0 +1,30 @@
+<div class="hero-detail">
+  @if (!hero) {
+
+    <mat-spinner></mat-spinner>
+  }
+
+  @if (hero) {
+
+
+    <h2>{{hero.name | uppercase}} Details</h2>
+    <div><span>Hero Number: </span>{{hero.id}}</div>
+    <mat-form-field>
+      <mat-label>Hero name: </mat-label>
+      <input matInput [(ngModel)]="hero.name" placeholder="Name" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Superpower: </mat-label>
+      <input matInput [(ngModel)]="hero.superpower" placeholder="Blast, fly, p.ej" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+  }
+
+  <div>
+    <button class="button" mat-stroked-button (click)="goBack()">Go Back</button>
+    <button class="button" mat-stroked-button (click)="save()">Save</button>
+  </div>
+
+</div>
+

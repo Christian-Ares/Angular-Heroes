@@ -1,0 +1,16 @@
+<h2>Top Heroes</h2>
+<div class="heroes-menu">
+  @if (!heroes.length) {
+    <mat-spinner></mat-spinner>
+  }
+  @for (hero of heroes; track $index) {
+    <mat-card class="heroe-card">
+      <mat-card-content routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </mat-card-content>
+    </mat-card>
+
+  }
+</div>
+
+<app-hero-search></app-hero-search>

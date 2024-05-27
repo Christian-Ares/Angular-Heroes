@@ -1,0 +1,36 @@
+<div class="heroes-menu">
+    <h2>My Heroes</h2>
+
+  <div class="add-hero">
+    <label for="new-hero">Hero name: </label>
+    <input id="new-hero" #heroName />
+
+    <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+      Add hero
+    </button>
+  </div>
+
+  @if (!heroes.length) {
+    <mat-spinner></mat-spinner>
+  }
+
+  <ul class="heroes">
+    @for (hero of heroes; track $index) {
+      <li>
+          <mat-card  class="heroes-card">
+            <mat-card-content routerLink="/detail/{{hero.id}}">
+              <span>
+                {{hero.name}}
+
+              </span>
+            </mat-card-content>
+            <button mat-icon-button (click)="openDialog(hero)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card>
+      </li>
+    }
+  </ul>
+
+
+</div>
